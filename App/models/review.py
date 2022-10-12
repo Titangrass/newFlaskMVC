@@ -10,14 +10,17 @@ class Review(db.Model):
         
     def __init__(self, reviewId):
         self.reviewId = reviewId
+        self.userId = userId
+        self.studentId = studentId
+        self.comment = comment
+        self.like = like
+        self.dislike = dislike
     
 
     def toJSON(self):
         return{
-            'reviewId' = reviewId
+            'reviewId' = self.reviewId
         }
-
-    
-    
+        
 
 

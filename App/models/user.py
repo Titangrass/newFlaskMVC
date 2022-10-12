@@ -10,7 +10,7 @@ class User(db.Model):
     staff_firstName = db.Column(db.String, nullable=False) 
     staff_lastName = db.Column(db.String, nullable=False) 
     staff_jobTitle = db.Column(db.String)
-    staff_reviews = db.Column(db.String, db.ForeignKey('Review.comment')
+    staff_reviews = db.Column(db.String, db.ForeignKey('Review.comment'))
 
     def __init__(self, id, password, staff_firstName, staff_lastName, staff_jobTitle, staff_reviews):
         self.id = id
