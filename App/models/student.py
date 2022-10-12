@@ -14,16 +14,15 @@ class Student(db.Model):
     student_courseLevel = db.Column(db.Integer, nullable=False)
     reviews = db.Column(db.String)
     
-    def __init__(self, staff_firstName, staff_lastName):
-        self.staff_firstName = staff_firstName
-        self.staff_lastName = staff_lastName
+    def __init__(self, student_firstName, student_lastName):
+        self.student_firstName = student_firstName
+        self.student_lastName = student_lastName
+    
 
     def toJSON(self):
         return{
-            'staff_firstName' = staff_firstName
-            'staff_lastName' = staff_lastName
-            'staff_jobTitle' = staff_jobTitle
-            'staff_reviews' = staff_reviews
+            'student_firstName' = student_firstName
+            'student_lastName' = student_lastName
         }
 
 
