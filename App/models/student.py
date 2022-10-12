@@ -1,11 +1,6 @@
 from App.database import db
 
 class Student(db.Model):
-    staff_firstName = db.Column(db.String, nullable=False) 
-    staff_lastName = db.Column(db.String, nullable=False) 
-    staff_jobTitle = db.Column(db.String)
-    staff_reviews = db.Column(db.String)
-
     studentId = db.Column(db.Integer, nullable=False, primary_key=True)
     student_firstName = db.Column(db.String, nullable=False)
     student_lastName = db.Column(db.String, nullable=False)
