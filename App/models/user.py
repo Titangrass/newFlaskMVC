@@ -4,7 +4,9 @@ from App.database import db
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     password = db.Column(db.String(120), nullable=False)
-    username = db.Column(db.String()
+
+    username = db.Column(db.String(120), nullable=False)
+    
     staff_firstName = db.Column(db.String, nullable=False) 
     staff_lastName = db.Column(db.String, nullable=False) 
     staff_jobTitle = db.Column(db.String)
@@ -13,7 +15,6 @@ class User(db.Model):
     def __init__(self, id, password, staff_firstName, staff_lastName, staff_jobTitle, staff_reviews):
         self.id = id
         self.set_password(password)
-
         self.staff_firstName = staff_firstName
         self.staff_lastName = staff_lastName
         self.staff_jobTitle = staff_jobTitle
@@ -22,7 +23,6 @@ class User(db.Model):
     def toJSON(self):
         return{
             'id': self.id,
-
             'staff_firstName' = staff_firstName
             'staff_lastName' = staff_lastName
             'staff_jobTitle' = staff_jobTitle
