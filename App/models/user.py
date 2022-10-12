@@ -6,7 +6,7 @@ class User(db.Model):
     password = db.Column(db.String(120), nullable=False)
 
     username = db.Column(db.String(120), nullable=False)
-    
+
     staff_firstName = db.Column(db.String, nullable=False) 
     staff_lastName = db.Column(db.String, nullable=False) 
     staff_jobTitle = db.Column(db.String)
@@ -23,10 +23,10 @@ class User(db.Model):
     def toJSON(self):
         return{
             'id': self.id,
-            'staff_firstName' = staff_firstName
-            'staff_lastName' = staff_lastName
-            'staff_jobTitle' = staff_jobTitle
-            'staff_reviews' = staff_reviews
+            'staff_firstName' = self.staff_firstName,
+            'staff_lastName' = self.staff_lastName,
+            'staff_jobTitle' = self.staff_jobTitle,
+            'staff_reviews' = self.staff_reviews
         }
 
     def set_password(self, password):
