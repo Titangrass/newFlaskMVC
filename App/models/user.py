@@ -4,7 +4,7 @@ from App.database import db
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     password = db.Column(db.String(120), nullable=False)
-    u
+    username = db.Column(db.String()
     staff_firstName = db.Column(db.String, nullable=False) 
     staff_lastName = db.Column(db.String, nullable=False) 
     staff_jobTitle = db.Column(db.String)
