@@ -8,7 +8,15 @@ class Student(db.Model):
     student_degree = db.Column(db.String, nullable=False)
     student_courseLevel = db.Column(db.Integer, nullable=False)
     reviews = db.Column(db.String)
-    review: 
+
+    '''
+    review: JSON.stringify([{
+        likes: Integer,
+        dislikes: Integer
+    }])
+    '''
+
+    array_of_objects = request.form['array_of_objects']
     
     def __init__(self, student_firstName, student_lastName, student_faculty, student_degree, student_courseLevel, reviews):
         self.student_firstName = student_firstName
