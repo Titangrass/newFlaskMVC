@@ -8,6 +8,7 @@ class Student(db.Model):
     student_degree = db.Column(db.String, nullable=False)
     student_courseLevel = db.Column(db.Integer, nullable=False)
     reviews = db.Column(db.String)
+    review: 
     
     def __init__(self, student_firstName, student_lastName, student_faculty, student_degree, student_courseLevel, reviews):
         self.student_firstName = student_firstName
@@ -23,5 +24,13 @@ class Student(db.Model):
             'student_firstName' = self.student_firstName,
             'student_lastName' = self.student_lastName
         }
+
+
+
+    def rate_review(self):
+        if like in self.review:
+            like+= 1
+        else:
+            dislike+= 1
 
 

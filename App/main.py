@@ -45,7 +45,7 @@ def loadConfig(app, config):
         delta = os.environ.get('JWT_EXPIRATION_DELTA', 7)
         
     app.config['JWT_EXPIRATION_DELTA'] = timedelta(days=int(delta))
-        
+    
     for key, value in config.items():
         app.config[key] = config[key]
 

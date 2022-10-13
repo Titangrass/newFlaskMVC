@@ -5,9 +5,9 @@ class Review(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
     studentId = db.Column(db.Integer, db.ForeignKey('Student.studentId'), nullable=False)
     comment = db.Column(db.String)
-    like = db.Column(db.Integer, nullable=False)
-    dislike = db.Column(db.Integer, nullable=False)
-        
+    like = db.Column(db.Integer)
+    dislike = db.Column(db.Integer, nullable)
+    
     def __init__(self, reviewId):
         self.reviewId = reviewId
         self.userId = userId
@@ -22,5 +22,6 @@ class Review(db.Model):
             'reviewId' = self.reviewId
         }
         
+
 
 
