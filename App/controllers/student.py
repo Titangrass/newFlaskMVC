@@ -11,14 +11,11 @@ def add_Student(studentId, student_firstName, student_lastName, student_faculty,
     db.session.commit()
     return new_review
 
-def get_student_by_id(studentId):
-    return Student.query.filter_by(studentId=studentId).first()
-
-def get_user(id):
-    return User.query.get(id)
+def get_student(studentId):
+    return User.query.get(studentId)
 
 def update_student(studentId, student_firstName, student_lastName, student_faculty, student_degree, student_courseLevel, reviews):
-    student = get_student():
+    student = get_student(studentId):
     if student:
         student.studentId = studentId
         student.student_firstName = student_firstName
