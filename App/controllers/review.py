@@ -11,4 +11,7 @@ def create_review(reviewId, userId, studentId, comment, like, dislike):
     db.session.commit()
     return new_review
 
+def rate_review(self):
+    
+
 

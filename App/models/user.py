@@ -18,7 +18,6 @@ class User(db.Model):
         self.staff_firstName = staff_firstName
         self.staff_lastName = staff_lastName
         self.staff_jobTitle = staff_jobTitle
-        self.staff_reviews = staff_reviews
 
     def toJSON(self):
         return{
