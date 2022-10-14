@@ -17,13 +17,16 @@ from App.controllers import (
 from App.views import (
     user_views,
     index_views
+    review_view
+
 )
 
 # New views must be imported and added to this list
 
 views = [
     user_views,
-    index_views
+    index_views,
+    review_view
 ]
 
 def add_views(app, views):
