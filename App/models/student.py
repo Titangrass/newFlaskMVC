@@ -40,7 +40,7 @@ class Student(db.Model):
             like+= 1
         else:
             dislike+= 1
-
+  
 """
 class Student(db.Model):
     studentId = db.Column(db.Integer, nullable=False, primary_key=True)
