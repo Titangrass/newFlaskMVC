@@ -27,6 +27,34 @@ def update_student(studentId, student_firstName, student_lastName, student_facul
         return db.session.commit()
     return None
 
+"""
+def add_student(firstName, lastName, faculty, degree, courselevel):
+    newstudent = Student(firstName=firstName, lastName=lastName, faculty=faculty, degree=degree, courseLevel=courseLevel)
+    db.session.add(newstudent)
+    db.session.commit()
+    return newstudent
+
+def search_student(studentId):
+    return Student.query.get(studentId)
+
+def update_student(studentId, data):
+    student = search_student(studentId)
+    if student:
+        if data["firstName"]:
+            student.firstName = data['firstName']
+        if data["lastName"]:
+            student.lastName = data['lastName']
+        if data["faculty"]:
+            student.faculty = data['faculty']
+        if data["degree"]:
+            student.degree = data['degree']
+        if data["courseLevel"]:
+            student.courseLevel = data['courseLevel']
+        db.session.add(student)
+        return db.session.commit()
+    return None
+
+"""
 
 
 
