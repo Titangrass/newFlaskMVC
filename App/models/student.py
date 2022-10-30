@@ -37,9 +37,9 @@ class Student(db.Model):
 
     def rate_review(self):
         if like in self.review:
-            like+= 1
+            like += 1
         else:
-            dislike+= 1
+            dislike += 1
   
 """
 class Student(db.Model):
