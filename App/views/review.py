@@ -1,20 +1,6 @@
 from flask import Blueprint, render_template, jsonify, request, send_from_directory
 from flask_jwt import jwt_required, current_identity
 
-from App.controllers import(
-    create_review,
-    rate_review
-)
-
-review_views = Blueprint('review_views', __name__, template_folder='../templates')
-
-@review_views.route('/', methods=['GET'])
-def get_review_action():
-    
-"""
-from flask import Blueprint, render_template, jsonify, request, send_from_directory
-from flask_jwt import jwt_required, current_identity
-
 
 from App.controllers import (
     log_review, 
@@ -83,5 +69,3 @@ def dislike_review_action(reviewId, studentId):
             return jsonify({'message': f"review about student {studentId} disliked"}), 201
         return jsonify({"message": "Server error"}), 500
     return jsonify({"error": "User not authorized to perform this action"}), 403
-
-"""

@@ -1,4 +1,3 @@
-"""
 from flask import Blueprint, render_template, jsonify, request, send_from_directory
 from flask_jwt import jwt_required, current_identity
 
@@ -42,4 +41,3 @@ def update_student_action(studentId):
         return jsonify({"error": f"Student id {studentId} not found"}), 404
     return jsonify({"error": "User not authorized to perform this action"}), 403
 
-"""

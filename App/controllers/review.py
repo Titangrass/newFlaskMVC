@@ -4,16 +4,6 @@ from App.config import config
 import requests
 import json
 
-
-def create_review(reviewId, userId, studentId, comment, like, dislike):
-    new_review = Review(reviewId=reviewId, userId=userId, studentId=studentId, comment=comment, like=like, dislike=dislike)
-    db.session.add(new_review)
-    db.session.commit()
-    return new_review
-
-def rate_review(self):
-
-"""
 def log_review(userId, studentId):
     student = Student.query.get(studentId=studentId)
     if student:
@@ -47,7 +37,7 @@ def like_review(reviewId, studentId):
         return True
     return False       
 
-"""       
+     
     
 
 
