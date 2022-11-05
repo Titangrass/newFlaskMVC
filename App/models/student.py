@@ -31,17 +31,3 @@ class Student(db.Model):
             'karmaScore' = self.getKarmaScore()
         }
 
-
-    def getKarmaScore(self):
-        numLikes = 0
-        numDislikes =0
-        score = 0
-        for review in self.reviews:
-            if review.like:
-                numLikes += 1
-
-            if review.dislike:
-                numDislikes +=1
-        total = numDislikes + numLikes
-        score = (numLikes - numDislikes/total)*100
-        return score

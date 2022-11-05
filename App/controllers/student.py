@@ -27,6 +27,20 @@ def update_student(studentId, student_firstName, student_lastName, student_facul
         return db.session.commit()
     return None
 
+def getKarmaScore(self):
+        numLikes = 0
+        numDislikes = 0
+        score = 0
+        for review in self.reviews:
+            if review.like:
+                numLikes += 1
+
+            if review.dislike:
+                numDislikes +=1
+        total = numDislikes + numLikes
+        score = (numLikes - numDislikes/total)*100
+        return score
+
 """
 def add_student(firstName, lastName, faculty, degree, courselevel):
     newstudent = Student(firstName=firstName, lastName=lastName, faculty=faculty, degree=degree, courseLevel=courseLevel)
@@ -54,7 +68,6 @@ def update_student(studentId, data):
         return db.session.commit()
     return None
 
-"""
 
 
 
