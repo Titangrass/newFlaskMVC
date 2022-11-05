@@ -29,7 +29,7 @@ class UserUnitTests(unittest.TestCase):
 
     # pure function no side effects or integrations called
     def test_toJSON(self):
-        user = User("allisonHarper127", "allison", "harper", "teacher", "allie127")
+        user = User("allison", "harper", "teacher", "allie127")
         user_json = user.toJSON()
         self.assertDictEqual(user_json, {"id":None, "username":"allisonHarper127", "staff_firstName":"allison", "staff_lastName":"harper", "staff_jobTitle":"teacher", "password":"allie127"})
 
@@ -46,11 +46,10 @@ class UserUnitTests(unittest.TestCase):
 
     def test_add_Student(self):
         new_student = Student("David", "Moriarty", "FST", "Computer Science", 3)
+
     
     def test_create_review(self):
         new_review = review("allisonHarper127", "101")
-
-    
 
 '''
     Integration Tests
