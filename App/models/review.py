@@ -23,12 +23,12 @@ class Review(db.Model):
 
     def toJSON(self):
         return{
-            'reviewId' = self.reviewId,
-            'userId' = self.userId,
-            'studentId' = self.studentId,
-            'comment' = self.comment,
-            'like' = self.like
-            'dislike' = self.dislike
+            'reviewId': self.reviewId,
+            'userId': self.userId,
+            'studentId': self.studentId,
+            'comment': self.comment,
+            'like': self.like
+            'dislike': self.dislike
         }
 
     def set_like(self):
