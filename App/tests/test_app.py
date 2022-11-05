@@ -10,7 +10,17 @@ from App.controllers import (
     authenticate,
     get_user,
     get_user_by_username,
-    update_user
+    update_user,
+    add_student,
+    get_all_students,
+    get_all_students_json,
+    update_student,
+    log_review, 
+    get_review,
+    view_student_reviews,
+    view_user_reviews,
+    like_review,
+    dislike_review,
 )
 
 from wsgi import app
