@@ -24,25 +24,28 @@ LOGGER = logging.getLogger(__name__)
 class UserUnitTests(unittest.TestCase):
 
     def test_new_user(self):
-        user = User("bob", "bobpass")
-        assert user.username == "bob"
+        user = User("allisonHarper127", "allison", "harper", "teacher", "allie127")
+        assert user.username == "allisonHarper127"
 
     # pure function no side effects or integrations called
     def test_toJSON(self):
-        user = User("bob", "bobpass")
+        user = User("allisonHarper127", "allison", "harper", "teacher", "allie127")
         user_json = user.toJSON()
-        self.assertDictEqual(user_json, {"id":None, "username":"bob"})
+        self.assertDictEqual(user_json, {"id":None, "username":"allisonHarper127", "staff_firstName":"allison", "staff_lastName":"harper", "staff_jobTitle":"teacher", "password":"allie127"})
+
     
     def test_hashed_password(self):
-        password = "mypass"
         hashed = generate_password_hash(password, method='sha256')
-        user = User("bob", password)
+        user = User("allisonHarper127", "allison", "harper", "teacher", "allie127")
         assert user.password != password
 
     def test_check_password(self):
-        password = "mypass"
-        user = User("bob", password)
+        password = "allie127"
+        user = User("allisonHarper127", "allison", "harper", "teacher", "allie127")
         assert user.check_password(password)
+
+    
+
 
 '''
     Integration Tests
