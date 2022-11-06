@@ -47,16 +47,16 @@ class UserUnitTests(unittest.TestCase):
     def test_hashed_password(self):
         password = "allie127"
         hashed = generate_password_hash(password, method='sha256')
-        user = User("allisonHarper127", password, "Allison", "Harper", "teacher")
+        user = User("allisonHarper127", password, "Allison", "Harper", "Lecturer")
         assert user.password != password
 
     def test_check_password(self):
         password = "allie127"
-        user = User("allisonHarper127", password, "Allison", "Harper", "teacher")
+        user = User("allisonHarper127", password, "Allison", "Harper", "Lecturer")
         assert user.check_password(password)
 
     def test_new_Student(self):
-        student = Student("David", "Moriarty", "FST", "Computer Science", 3)
+        student = Student("David", "Moriarty", "FST", "Computer Science", "Year3"
         assert student.firstName == "David"
     
     def test_new_review(self):
