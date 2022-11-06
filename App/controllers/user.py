@@ -1,8 +1,8 @@
 from App.models import User
 from App.database import db
 
-def create_user(id, username, staff_firstName, staff_lastName, staff_jobTitle, password):
-    newuser = User(username=username, staff_firstName=staff_firstName, staff_lastName=staff_lastName, staff_jobTitle=staff_jobTitle, password=password)
+def create_user(username, password, firstName, lastName, jobTitle):
+    newuser = User(username=username, password=password, firstName=firstName, lastName=lastName, jobTitle=jobTitle)
     db.session.add(newuser)
     db.session.commit()
     return newuser
@@ -23,10 +23,13 @@ def get_all_users_json():
     users = [user.toJSON() for user in users]
     return users
 
-def update_user(id, username):
+def update_user(id, username, firstName, lastName, jobTitle):
     user = get_user(id)
     if user:
         user.username = username
+        user.firstName = firstName
+        user.lastName = lastName
+        user.jobTitle = jobTitle
         db.session.add(user)
         return db.session.commit()
     return None

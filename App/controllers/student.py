@@ -1,12 +1,8 @@
-from App.models import Student
+from App.models import User, Student, Review
 from App.database import db
-from App.config import config
-import requests
-import json
 
-
-def add_student(firstName, lastName, faculty, degree, courselevel):
-    newstudent = Student(firstName=firstName, lastName=lastName, faculty=faculty, degree=degree, courseLevel=courseLevel)
+def add_student(firstName, lastName, faculty, degree, status, courselevel):
+    newstudent = Student(firstName=firstName, lastName=lastName, faculty=faculty, degree=degree, status=status, courseLevel=courseLevel)
     db.session.add(newstudent)
     db.session.commit()
     return newstudent
@@ -14,36 +10,34 @@ def add_student(firstName, lastName, faculty, degree, courselevel):
 def search_student(studentId):
     return Student.query.get(studentId)
 
-def update_student(studentId, data):
+def get_all_students():
+    return Student.query.all()
+
+def get_Karma_Score(studentId):
     student = search_student(studentId)
     if student:
-        if data["firstName"]:
-            student.firstName = data['firstName']
-        if data["lastName"]:
-            student.lastName = data['lastName']
-        if data["faculty"]:
-            student.faculty = data['faculty']
-        if data["degree"]:
-            student.degree = data['degree']
-        if data["courseLevel"]:
-            student.courseLevel = data['courseLevel']
-        db.session.add(student)
-        return db.session.commit()
+        return student.toJSON()
     return None
 
-def getKarmaScore(self):
-        numLikes = 0
-        numDislikes = 0
-        score = 0
-        for review in self.reviews:
-            if review.like:
-                numLikes += 1
+def get_all_students_json():
+    students = Student.query.all()
+    if not students:
+        return []
+    students = [student.toJSON() for student in students]
+    return students
 
-            if review.dislike:
-                numDislikes +=1
-        total = numDislikes + numLikes
-        score = (numLikes - numDislikes/total)*100
-        return score
+def update_student(studentId, firstName, lastName, faculty, degree, status, courselevel):
+    student = search_student(studentId)
+    if student:
+            student.firstName = firstName
+            student.lastName = lastName
+            student.faculty = faculty
+            student.degree = degree
+            student.status =status
+            student.courseLevel = courseLevel
+            db.session.add(student)
+            return db.session.commit()
+    return None
 
 """
 def add_Student(studentId, student_firstName, student_lastName, student_faculty, student_degree, student_courseLevel, reviews):
