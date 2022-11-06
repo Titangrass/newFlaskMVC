@@ -4,6 +4,7 @@ from flask_jwt import jwt_required, current_identity
 
 from App.controllers import (
     create_user, 
+    get_user_by_username,
     get_all_users,
     get_all_users_json,
 )
@@ -23,6 +24,7 @@ def get_users_action():
         users = get_all_users_json()
         return jsonify(users)
     return jsonify({"error": "User not authorized to perform this action"}), 403
+
 
 @user_views.route('/api/users', methods=['POST'])
 def create_user_action():

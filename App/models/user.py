@@ -27,9 +27,9 @@ class User(db.Model):
         return{
             'id': self.id,
             'username': self.username,
-            'firstName' = self.firstName,
-            'lastName' = self.lastName,
-            'jobTitle' = self.jobTitle
+            'firstName': self.firstName,
+            'lastName': self.lastName,
+            'jobTitle': self.jobTitle
             
         }
 
@@ -40,4 +40,3 @@ class User(db.Model):
     def check_password(self, password):
         """Check hashed password."""
         return check_password_hash(self.password, password)
-

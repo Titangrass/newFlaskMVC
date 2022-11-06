@@ -18,8 +18,7 @@ class Review(db.Model):
         self.dislike = dislike
         
     def __repr__(self):
-        return f'<Review {self.comment} written by: {self.user.username} {self.user.jobTitle} about: {self.studentId} 
-        {self.student.firstName} {self.student.lastName} >'
+        return f'<Review {self.comment} written by: {self.user.username} {self.user.jobTitle} about: {self.studentId} {self.student.firstName} {self.student.lastName}>'
 
     def toJSON(self):
         return{
@@ -27,7 +26,7 @@ class Review(db.Model):
             'userId': self.userId,
             'studentId': self.studentId,
             'comment': self.comment,
-            'like': self.like
+            'like': self.like,
             'dislike': self.dislike
         }
 
@@ -38,7 +37,6 @@ class Review(db.Model):
     def set_dislike(self):
         """Set dislike field to false"""
         self.like = False
-
 
 
 
